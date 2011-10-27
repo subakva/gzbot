@@ -42,7 +42,8 @@ parseAndPrint = (msg, body) ->
       when 'Memory'             then "Memory           : #{threshold_value['formatted_metric_value']}"
       when 'DB'                 then "DB               : #{threshold_value['formatted_metric_value']}"
   )
-  msg.send "<pre>#{stat_lines.join('<br/>')}</pre>"
+  # JDW: Find a way to send the text as a "paste" so that the formatting is maintained.
+  msg.send stat_lines.join("\n")
 
 # Example XML Response:
 #
