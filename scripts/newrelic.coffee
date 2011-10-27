@@ -16,4 +16,5 @@ module.exports = (robot) ->
       .header('x-api-key', api_key)
       .get() (err, res, body) ->
         data   = JSON.parse(body)
-        msg.send "#{data}"
+        for key, value in data
+          msg.send "#{key} = #{value}"
