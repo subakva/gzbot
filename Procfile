@@ -1,1 +1,1 @@
-app: bin/hubot -a campfire -n Gzbot
+app: bin/hubot -a campfire -n gbot
