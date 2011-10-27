@@ -1,8 +1,4 @@
-#
-# Makes anything web-scale
-#
-# make <anything> web scale
-#
+# make <anything> scale - Makes anything web-scale
 
 module.exports = (robot) ->
   robot.respond /make (.*)( web)? scale/i, (msg) ->

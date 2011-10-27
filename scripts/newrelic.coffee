@@ -1,6 +1,6 @@
 # Allows Hubot to get performance stats from New Relic
 #
-# stats for <app_name> -
+# stats for <app_name> - Shows the New Relic threshold stats for the app
 
 module.exports = (robot) ->
   robot.respond /(stats)( for)? (.*)/i, (msg) ->
