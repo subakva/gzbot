@@ -29,17 +29,20 @@ fetchAndPrint = (msg, threshold_url, api_key) ->
 parseAndPrint = (msg, body) ->
   parser = require 'xml2json'
   data = JSON.parse(parser.toJson(body));
-  for threshold_value in data['threshold-values']['threshold_value']
+  stat_lines = []
+  stat_lines = (for threshold_value in data['threshold-values']['threshold_value']
     switch threshold_value['name']
-      when 'Apdex'              then msg.send "Apdex            : #{threshold_value['formatted_metric_value']}"
-      when 'Application Busy'   then msg.send "Application Busy : #{threshold_value['formatted_metric_value']}"
-      when 'Error Rate'         then msg.send "Error Rate       : #{threshold_value['formatted_metric_value']}"
-      when 'Throughput'         then msg.send "Throughput       : #{threshold_value['formatted_metric_value']}"
-      when 'CPU'                then msg.send "CPU              : #{threshold_value['formatted_metric_value']}"
-      when 'Response Time'      then msg.send "Response Time    : #{threshold_value['formatted_metric_value']}"
-      when 'Errors'             then msg.send "Errors           : #{threshold_value['formatted_metric_value']}"
-      when 'Memory'             then msg.send "Memory           : #{threshold_value['formatted_metric_value']}"
-      when 'DB'                 then msg.send "DB               : #{threshold_value['formatted_metric_value']}"
+      when 'Apdex'              then "Apdex            : #{threshold_value['formatted_metric_value']}"
+      when 'Application Busy'   then "Application Busy : #{threshold_value['formatted_metric_value']}"
+      when 'Error Rate'         then "Error Rate       : #{threshold_value['formatted_metric_value']}"
+      when 'Throughput'         then "Throughput       : #{threshold_value['formatted_metric_value']}"
+      when 'CPU'                then "CPU              : #{threshold_value['formatted_metric_value']}"
+      when 'Response Time'      then "Response Time    : #{threshold_value['formatted_metric_value']}"
+      when 'Errors'             then "Errors           : #{threshold_value['formatted_metric_value']}"
+      when 'Memory'             then "Memory           : #{threshold_value['formatted_metric_value']}"
+      when 'DB'                 then "DB               : #{threshold_value['formatted_metric_value']}"
+  )
+  msg.send "<pre>#{stat_lines.join('<br/>')}</pre>"
 
 # Example XML Response:
 #
