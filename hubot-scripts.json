@@ -1,1 +1,12 @@
-["tweet.coffee", "shipit.coffee", "stocks.coffee"]
+[
+	"ascii.coffee",
+	"redis-brain.coffee",
+	"shipit.coffee",
+	"speak.coffee",
+	"stocks.coffee",
+	"sudo.coffee",
+	"tweet.coffee",
+	"weather.coffee",
+	"wordnik.coffee",
+	"xkcd.coffee"
+]
